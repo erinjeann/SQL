@@ -39,7 +39,7 @@ FROM superstore
 GROUP BY category;
 
 #Show a statistic about the price for items in the category of "Kitchen Supplies".
-SELECT MAX (price), item_name
+SELECT MAX (price
 FROM superstore
 WHERE category="Kitchen Supplies";
 
