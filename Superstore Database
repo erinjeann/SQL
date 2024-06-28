@@ -41,5 +41,10 @@ GROUP BY category;
 #Show a statistic about the price for items in the category of "Kitchen Supplies".
 SELECT MAX (price
 FROM superstore
-WHERE category="Kitchen Supplies";
+WHERE category="Kitchen Supplies";'
 
+#What is the least expensive item for each category in the superstore?
+
+SELECT MIN (price),category
+FROM superstore
+GROUP BY category;
