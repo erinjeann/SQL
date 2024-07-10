@@ -92,3 +92,39 @@ FROM fortune_companies
 WHERE paid_time_off_days>=15
 AND maternity_leave_weeks>=1
 ;
+
+#Group companies by monthly revenue per thousand
+SELECT COUNT (*),
+CASE WHEN revenue>=500 then "Over 500"
+WHEN revenue>=400 then "Over 400"
+WHEN revenue>=300 then "Over 300"
+WHEN revenue>=200 then "Over 200"
+ELSE "Under 200" END AS monthly_revenue
+FROM fortune_companies
+GROUP BY monthly_revenue
+ORDER BY monthly_revenue desc;
+
+#Which employers have an employee tenure greater than 5 years?
+SELECT(avg_employee_tenure), company_name
+FROM fortune_companies
+GROUP BY company_name
+HAVING(avg_employee_tenure) >5
+ORDER BY avg_employee_tenure DESC;
+
+#List the companies with revenue greater than 400,000 per year
+SELECT(revenue), company_name
+FROM fortune_companies
+GROUP BY company_name
+HAVING(revenue) > 400
+ORDER BY rvenue DESC;
+
+#Which companies have greater than 20,000 employees or an average tenure of more than 6 years. Order by the employee number ascending.
+SELECT (employees), company_name, avg_employee_tenure
+FROM fortune_companies
+WHERE employees = 20000 OR avg_employee_tenure > 6
+ORDER BY employees ASC;
+
+#Which company has the greatest amount of paid time off per year and how much do they have?
+SELECT MAX(paid_time_off_days, gompany_name
+FROM fortune_companies;
+
